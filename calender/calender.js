@@ -1,22 +1,22 @@
 const dateary = getCurrentDate();
+const target = document.getElementById("calender");
 console.log(dateary);
-// 年・月を出力
-document.getElementById("year_month").innerHTML = `${dateary[0]} ${
-  dateary[1]
-}月`;
 initForm();
-getCalender();
-//  ボタン押されたときに入力された年月にカレンダーを変更
-const button = document.getElementById("reflect");
-button.addEventListener(
+getCalender(dateary[0], dateary[1]);
+//  ボタン押されたときに、入力された年月にカレンダーを変更
+const reflectButton = document.getElementById("reflect");
+reflectButton.addEventListener(
   "click",
   () => {
-    const getYear = document.getElementById("yearForm").value;
-    const getMonth = document.getElementById("monthForm").value;
+    console.log("clicked");
+    while (target.lastChild.innerHTML != "Sat") target.removeChild(target.lastChild);
+    const getYear = document.getElementById("yearForm").valueAsNumber;
+    const getMonth = document.getElementById("monthForm").valueAsNumber;
     getCalender(getYear, getMonth);
   },
   false
 );
+
 //  dateary=[年,月,日,曜日]
 function getCurrentDate() {
   const nowDate = new Date();
@@ -36,14 +36,16 @@ function initForm() {
   document.getElementById("monthForm").setAttribute("value", defaultMonth);
 }
 
-function getCalender() {
+function getCalender(kariYear, kariMonth) {
   //  1日の曜日求める
-  const firstDate = new Date(dateary[0], dateary[1] - 1);
-  const firstYoubi = firstDate.getDay();
-  console.log(firstYoubi);
+  let firstDate = new Date(kariYear, kariMonth - 1);
+  let firstYoubi = firstDate.getDay();
+  console.log("曜日" + firstYoubi);
+  console.log("月" + kariMonth);
   //  月が何日まであるか(うるう年は後で作る)
   let lastDay;
-  switch (dateary[1]) {
+  switch (kariMonth) {
+    case 1:
     case 3:
     case 5:
     case 7:
@@ -65,9 +67,7 @@ function getCalender() {
       break;
   }
   console.log(lastDay);
-
   //  表に追加していく
-  const target = document.getElementById("calender");
   for (let j = 0; j < firstYoubi; j++) {
     let space = document.createElement("dt");
     space.innerHTML = "";
@@ -78,4 +78,6 @@ function getCalender() {
     outputDay.innerHTML = i;
     target.appendChild(outputDay);
   }
+  // 見出しの年・月を変更
+  document.getElementById("year_month").innerHTML = `${kariYear} ${kariMonth}月`;
 }

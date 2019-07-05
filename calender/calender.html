@@ -46,10 +46,10 @@
     </dl>
     <form action="">
       <label for="yearForm">年：</label>
-      <input type="number" name="year" id="yearForm" /><br />
+      <input type="number" name="year" id="yearForm" min="1" /><br />
       <label for="monthForm">月：</label>
-      <input type="number" name="month" id="monthForm" /><br />
-      <button id="reflect">反映</button>
+      <input type="number" name="month" id="monthForm" max="12" min="1" /><br />
+      <input type="button" id="reflect" value="反映">
     </form>
   </div>
 
