@@ -6,7 +6,7 @@ const nowDay = nowDate.getDate();
 const nowYoubi = nowDate.getDay();
 console.log(`${nowYear}/${nowMonth}/${nowDay}/${nowYoubi}`);
 // 年・月を出力
-document.getElementById("year_month").innerHTML = `{$nowYear} {$nowMonth}月`;
+document.getElementById("year_month").innerHTML = `${nowYear} ${nowMonth}月`;
 //  1日の曜日求める
 const firstDate = new Date(nowYear, nowMonth - 1);
 const firstYoubi = firstDate.getDay();
