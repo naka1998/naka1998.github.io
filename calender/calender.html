@@ -1,41 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <style>
-      #wrap {
-        width: 350px;
-      }
-      h1 {
-        text-align: center;
-        margin: 0;
-      }
-      dl {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      dt {
-        width: 50px;
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="wrap">
-      <h1 id="year_month"></h1>
-      <dl id="calender">
-        <dt>Sun</dt>
-        <dt>Mon</dt>
-        <dt>Tue</dt>
-        <dt>Wed</dt>
-        <dt>Thu</dt>
-        <dt>Fri</dt>
-        <dt>Sat</dt>
-      </dl>
-    </div>
-    <script type="text/javascript" src="calender.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    #wrap {
+      width: 350px;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 0;
+    }
+
+    dl {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    dt {
+      width: 50px;
+      text-align: center;
+    }
+
+    form * {
+      margin: 10px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <h1 id="year_month"></h1>
+    <dl id="calender">
+      <dt>Sun</dt>
+      <dt>Mon</dt>
+      <dt>Tue</dt>
+      <dt>Wed</dt>
+      <dt>Thu</dt>
+      <dt>Fri</dt>
+      <dt>Sat</dt>
+    </dl>
+    <form action="">
+      <label for="yearForm">年：</label>
+      <input type="number" name="year" id="yearForm" /><br />
+      <label for="monthForm">月：</label>
+      <input type="number" name="month" id="monthForm" /><br />
+      <button id="reflect">反映</button>
+    </form>
+  </div>
+
+  <script type="text/javascript" src="calender.js"></script>
+</body>
+
 </html>
