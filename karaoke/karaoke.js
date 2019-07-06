@@ -5,14 +5,18 @@ const target = document.getElementById("button1");
 target.addEventListener("click", () => {
   let inputFumen = document.getElementById("fumen").value;
   let inputUpdown = document.getElementById("updown").valueAsNumber;
-  for (i = 0; i <= 11; i++) {
-    let diff = i + inputUpdown;
-    if (diff >= 12) {
-      diff -= 12;
-    } else if (diff <= -1) {
-      diff += 12;
+  let outputFunmen;
+  for (i = 0; i <= onkai.length; i++) {
+    let targetchar = inputFumen.charAt(i);
+    for (j = 0; onkai[j] != targetchar && j <= onkai.length; j++) {
     }
-    outputFumen = inputFumen.replace(new RegExp(`${onkai[i]}`, "g"), onkai[diff]);
+    //  検索して、見つかった OR j=12で抜ける
+    if (j = 12) {
+
+    } else {
+
+    }
+    outputFunmen.charAt(-1) = ;// 一番後ろに文字追加
   }
   console.log(inputFumen);
   document.getElementById("output").value = inputFumen;
