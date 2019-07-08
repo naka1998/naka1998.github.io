@@ -1,9 +1,10 @@
 const onkai = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 console.log(onkai);
 const target = document.getElementById("button1");
+const target2 = document.getElementById("output");
 //  文字列中の"C"を一斉に置換→"C#"を一斉に置換→…てのはできなかった
-let outputFunmen = "";
 target.addEventListener("click", () => {
+  let outputFunmen = "";
   let inputFumen = document.getElementById("fumen").value;
   let inputUpdown = document.getElementById("updown").valueAsNumber;
   for (i = 0; i <= inputFumen.length; i++) {
@@ -21,6 +22,11 @@ target.addEventListener("click", () => {
     } else {
       //  置き換え先を指定
       let k = inputUpdown + j;
+      if (k > 11) {
+        k = k - 12;
+      } else if (k < 0) {
+        k = 12 + k;
+      }
       insChar = onkai[k];
     }
     console.log(insChar);
@@ -28,5 +34,5 @@ target.addEventListener("click", () => {
     outputFunmen += insChar;
   }
   console.log(outputFunmen);
-  document.getElementById("output").value = outputFunmen;
+  target2.textContent = outputFunmen;
 }, false);
