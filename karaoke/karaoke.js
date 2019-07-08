@@ -1,38 +1,53 @@
-const onkai = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
-console.log(onkai);
-const target = document.getElementById("button1");
-const target2 = document.getElementById("output");
-//  文字列中の"C"を一斉に置換→"C#"を一斉に置換→…てのはできなかった
-target.addEventListener("click", () => {
-  let outputFunmen = "";
-  let inputFumen = document.getElementById("fumen").value;
-  let inputUpdown = document.getElementById("updown").valueAsNumber;
-  for (i = 0; i <= inputFumen.length; i++) {
-    let targetChar = inputFumen.charAt(i);
+class KaraokeMachine {
+  constructor(fumen, updown) {
+
+    this.onkai = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+    this.outputFunmen = "";
+    this.fumen = fumen;
+    this.updown = updown;
+  }
+  search() {  //  検索して、見つかった OR j=12で抜ける
+    let targetChar = this.fumen.charAt(i);
     let j = 0;
-    while (onkai[j] != targetChar && j <= onkai.length) {
+    while (this.onkai[j] != targetChar && j <= this.onkai.length) {
       j += 1;
     }
-    console.log(j);
-    //  検索して、見つかった OR j=12で抜ける
+    return j;
+  }
+  trans(k) {
     let insChar;
-    if (j >= 12) {
+    if (k >= 12) {
       //  j=12 <=> targetChar = "　" →変換しない
       insChar = " ";
     } else {
-      //  置き換え先を指定
-      let k = inputUpdown + j;
-      if (k > 11) {
-        k = k - 12;
-      } else if (k < 0) {
-        k = 12 + k;
+      //  置き換え先を指定(配列の範囲を超えたとき)
+      let l = this.updown + k;
+      if (l > 11) {
+        l = l - 12;
+      } else if (l < 0) {
+        l = 12 + l;
       }
-      insChar = onkai[k];
+      insChar = this.onkai[l];
     }
     console.log(insChar);
-    //  一番後ろに文字追加
-    outputFunmen += insChar;
+    //  置き換え先の文字を返す
+    return insChar;
   }
-  console.log(outputFunmen);
-  target2.textContent = outputFunmen;
-}, false);
+}
+//  こっから
+const target = document.getElementById("button1");
+const target2 = document.getElementById("output");
+target.addEventListener("click", clickEvent, false);
+
+function clickEvent() {
+  console.log("clicked");
+  const inputFumen = document.getElementById("fumen").value;
+  const inputUpdown = document.getElementById("updown").valueAsNumber;
+  karaoke = new KaraokeMachine(inputFumen, inputUpdown);
+  for (i = 0; i <= karaoke.fumen.length; i++) {
+    let result = karaoke.search(karaoke.fumen);
+    console.log(result);
+    karaoke.outputFunmen += karaoke.trans(result);
+  }
+  target2.textContent = karaoke.outputFunmen;
+}
