@@ -39,7 +39,12 @@ ol, ul {
 .kbd-navigation .square:focus {
   background: #ddd;
 }
-
+.bold{
+  font-weight:bold;
+}
+.highlight {
+  background-color: yellow;
+}
 .game {
   display: flex;
   flex-direction: row;
