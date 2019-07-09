@@ -1,0 +1,25 @@
+#wrap{
+  width: 550px;
+}
+.square{
+width: 100px;
+height: 100px;
+margin: 2px;
+border: 1px black solid;
+}
+.col{
+float: left;
+}
+.bigChar{
+  font-size: 32px;
+  width: 100px;
+  text-align: center;
+}
+.titleStyle{
+  width: 100px;
+  margin: 3px;
+  text-align: center;
+  background-color: azure;
+  font-size: 32px;
+  float:left;
+}
