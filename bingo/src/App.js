@@ -3,7 +3,7 @@ import "./App.css"
 
 function Square(props) {
   return (
-    <button className={props.isOpened ? "openedButton" : ""} key={props.j} onClick={() => props.onClick()}>{props.value}</button>
+    <button className={props.isOpened ? "openedButton" : ""} key={props.j} onClick={props.onClick}>{props.value}</button>
   );
 }
 
