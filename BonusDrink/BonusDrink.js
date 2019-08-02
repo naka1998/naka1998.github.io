@@ -9,14 +9,14 @@ const inputForm = document.getElementById("drinknum");
 const calculation = () => {
   let num = inputForm.valueAsNumber;
   console.log(num);
-  let devidedNum = 0; //  飲める本数
+  let numOfDrinks = 0; //  飲める本数
   while (num > 2) {
-    devidedNum = devidedNum + num;  //  飲める本数＝飲める本数 + 残りの本数
+    numOfDrinks = numOfDrinks + num;  //  飲める本数＝飲める本数 + 残りの本数
     num = Math.floor(num / 3);  // 残りの本数=空瓶でもらえる本数
     console.log("残り" + num);
   }
-  devidedNum += num;
-  alert(`${devidedNum}本飲めます`);
+  numOfDrinks += num;
+  alert(`${numOfDrinks}本飲めます`);
 }
 
 button.addEventListener("click", calculation, false);
