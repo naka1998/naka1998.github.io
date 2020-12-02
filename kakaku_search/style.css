@@ -1,0 +1,34 @@
+body {
+  background-color: #e3f6f5;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI",
+    "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic",
+    Verdana, Meiryo, sans-serif;
+}
+#containter {
+  text-align: center;
+}
+h1 {
+  font-size: 64px;
+  color: #272343;
+}
+p {
+  font-size: 14px;
+  color: #2d334a;
+}
+#sbox {
+  margin: 20px;
+  padding: 10px;
+  color: #2d334a;
+  background-color: #fffffe;
+  font-size: 20px;
+  max-width: 320px;
+  border-radius: 5px;
+}
+#sbtn {
+  background-color: #ffd803;
+  color: #272343;
+  width: 80px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}

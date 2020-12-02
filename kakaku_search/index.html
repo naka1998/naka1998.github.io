@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>価格検索</title>
     <script>
       const search_url = [
@@ -24,9 +25,18 @@
     </script>
   </head>
   <body>
-    <form>
-      <input type="text" placeholder="商品名を入力してください" /><br />
-      <button onclick="search()">検索</button>
-    </form>
+    <div id="containter">
+      <h1>価格比較</h1>
+      <form id="form1">
+        <input
+          type="text"
+          id="sbox"
+          placeholder="商品名を入力してください"
+          required
+        /><br />
+        <button id="sbtn" onclick="search()">検索</button>
+      </form>
+      <p>ポップアップをブロックしていると動かないよ</p>
+    </div>
   </body>
 </html>
