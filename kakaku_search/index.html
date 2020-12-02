@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>価格検索</title>
+    <script>
+      const search_url = [
+        "https://search.rakuten.co.jp/search/mall/",
+        "https://www.amazon.co.jp/s?k=",
+        "https://shopping.yahoo.co.jp/search?p=",
+        "https://www.yodobashi.com/?word=",
+        "https://kakaku.com/search_results/",
+      ];
+      function search() {
+        const word = document.forms[0].elements[0].value;
+        for (let i = 0; i < search_url.length; i++) {
+          const element = search_url[i];
+          const url = element + word;
+          const log = window.open(encodeURI(url));
+          console.log(log);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <input type="text" placeholder="商品名を入力してください" /><br />
+      <button onclick="search()">検索</button>
+    </form>
+  </body>
+</html>
