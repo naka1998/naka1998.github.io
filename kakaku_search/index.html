@@ -19,10 +19,18 @@
           for (let i = 0; i < search_url.length; i++) {
             const element = search_url[i];
             const url = element + word;
-            const log = window.open(encodeURI(url));
-            console.log(log);
+            createIframe(encodeURI(url));
           }
         }
+      }
+      function createIframe(url) {
+        const base = document.getElementById("iframe_place");
+        const obj = document.createElement("iframe");
+        obj.src = url;
+        obj.setAttribute("frameBorder", "1");
+        obj.setAttribute("scrolling", "no");
+        obj.setAttribute("class", "iframe");
+        base.appendChild(obj);
       }
     </script>
   </head>
@@ -50,6 +58,7 @@
           <li>価格.com</li>
         </ul>
       </div>
+      <div id="iframe_place"></div>
     </div>
   </body>
 </html>
