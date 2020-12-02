@@ -15,11 +15,13 @@
       ];
       function search() {
         const word = document.forms[0].elements[0].value;
-        for (let i = 0; i < search_url.length; i++) {
-          const element = search_url[i];
-          const url = element + word;
-          const log = window.open(encodeURI(url));
-          console.log(log);
+        if (!!word) {
+          for (let i = 0; i < search_url.length; i++) {
+            const element = search_url[i];
+            const url = element + word;
+            const log = window.open(encodeURI(url));
+            console.log(log);
+          }
         }
       }
     </script>
@@ -33,10 +35,20 @@
           id="sbox"
           placeholder="商品名を入力してください"
           required
-        /><br />
+        />
         <button id="sbtn" onclick="search()">検索</button>
       </form>
-      <p>ポップアップをブロックしていると動かないよ</p>
+      <p>注：ポップアップをブロックしていると動かないよ</p>
+      <div class="non-center">
+        <h3>対応サイト</h3>
+        <ul>
+          <li>amazon</li>
+          <li>楽天市場</li>
+          <li>Yahooショッピング</li>
+          <li>ヨドバシカメラ</li>
+          <li>価格.com</li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
