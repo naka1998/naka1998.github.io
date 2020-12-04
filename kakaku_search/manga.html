@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>漫画検索</title>
+    <script>
+      const search_url = [
+        "http://manga-zip.net/?s=",
+        "http://13dl.net/?s=",
+        "https://manga314.com/?s=",
+        "https://cmczip.com/?s=",
+      ];
+      function search() {
+        const word = document.forms[0].elements[0].value;
+        if (!!word) {
+          for (let i = 0; i < search_url.length; i++) {
+            const element = search_url[i];
+            const url = element + word;
+            window.open(encodeURI(url));
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="containter">
+      <h1>漫画検索</h1>
+      <form id="form1">
+        <input type="text" id="sbox" placeholder="タイトル" required />
+        <button id="sbtn" onclick="search()">検索</button>
+      </form>
+      <p>注：ポップアップをブロックしていると動かないよ</p>
+      <p>iframeが拒否されたので新規タブで開くようにしているよ</p>
+      <div id="iframe_place"></div>
+    </div>
+  </body>
+</html>
